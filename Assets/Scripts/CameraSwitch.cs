@@ -1,5 +1,6 @@
 using UnityEngine;
 using TMPro;
+using UXF;
 
 public class CameraSwitch : MonoBehaviour
 {
@@ -13,9 +14,11 @@ public class CameraSwitch : MonoBehaviour
     public PlayerMovementHandler playerMovementHandler;
     public TMP_Text birdsEyeViewInstructions;
     public TMP_Text routeViewInstructions;
+    public SpawnTrial spawnTrial;
     public float conditionViewDuration = 30f;
 
     public Countdown countdown;
+    public Session session;
 
     public void EnableBirdsEyeView()
     { 
@@ -45,6 +48,8 @@ public class CameraSwitch : MonoBehaviour
 
     public void EnableFirstPersonView()
     {
+        spawnTrial.trialSpawner(session);
+        Debug.Log("Enabling first person view");
         birdsEyeCamera.enabled = false;
         routeCamera.enabled = false;
         firstPersonCamera.enabled = true;

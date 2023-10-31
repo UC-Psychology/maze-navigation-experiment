@@ -6,7 +6,6 @@ using TMPro;
 
 public class ConditionHandler : MonoBehaviour
 {
-    public Camera mainCamera; // Reference to your main camera
     public CameraSwitch cameraSwitch;
     public TMP_Text goInstructions;
     public PlayerMovementHandler playerMovementHandler;
@@ -27,6 +26,7 @@ public class ConditionHandler : MonoBehaviour
         }
         else
         {
+            cameraSwitch.EnableFirstPersonView();
             goInstructions.gameObject.SetActive(true);
             playerMovementHandler.EnablePlayerMovement();
             Invoke("DisableGoInstructions", 1f);
