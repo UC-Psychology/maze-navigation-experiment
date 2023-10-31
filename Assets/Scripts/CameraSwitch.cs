@@ -5,28 +5,29 @@ public class CameraSwitch : MonoBehaviour
     public Camera firstPersonCamera;
     public Camera birdsEyeCamera;
 
-    public GameObject player;
-
     public GameObject targetColorSquare;
+    public GameObject startingColorSquare;
 
-    void Update()
+    public PlayerMovementHandler playerMovementHandler;
+
+    public Countdown countdown;
+
+    public void EnableBirdsEyeView()
+    { 
+        firstPersonCamera.enabled = false;
+        birdsEyeCamera.enabled = true;
+        playerMovementHandler.DisablePlayerMovement();
+        targetColorSquare.SetActive(true);
+        startingColorSquare.SetActive(true);
+        countdown.StartCountdown();
+        Invoke("EnableFirstPersonView", 15f);
+    }
+
+    public void EnableFirstPersonView()
     {
-        if (Input.GetKeyDown(KeyCode.P))
-        {
-            if (firstPersonCamera.enabled)
-            {
-                firstPersonCamera.enabled = false;
-                birdsEyeCamera.enabled = true;
-                player.GetComponent<FirstPersonController>().enabled = false;
-                targetColorSquare.SetActive(true);
-            }
-            else
-            {
-                birdsEyeCamera.enabled = false;
-                firstPersonCamera.enabled = true;
-                player.GetComponent<FirstPersonController>().enabled = true;
-                targetColorSquare.SetActive(false);
-            }
-        }
+        birdsEyeCamera.enabled = false;
+        firstPersonCamera.enabled = true;
+        playerMovementHandler.EnablePlayerMovement();
+        targetColorSquare.SetActive(false);
     }
 }

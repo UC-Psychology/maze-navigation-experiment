@@ -10,8 +10,7 @@ public class TutorialController : MonoBehaviour
     "Press A to turn right", 
     "Press S to move backward", 
     "Press D to turn left",
-    "Press Q to move left", 
-    "Press E to move right"};
+    "Press and hold LeftShift while moving to sprint",};
 
     void Update()
     {
@@ -49,18 +48,10 @@ public class TutorialController : MonoBehaviour
                     tutorialText.text = tutorialSteps[++currentStep];
                 }
             }
-            else if (Input.GetKeyDown(KeyCode.Q))
+            else if (Input.GetKeyDown(KeyCode.LeftShift))
             {
-                currentSequence += "Q";
+                currentSequence += "LeftShift";
                 if (currentStep == 4)
-                {
-                    tutorialText.text = tutorialSteps[++currentStep];
-                }
-            }
-            else if (Input.GetKeyDown(KeyCode.E))
-            {
-                currentSequence += "E";
-                if (currentStep == 5)
                 {
                     tutorialText.text = "Congratulations! You have completed the tutorial. Now, collect the coins to advance to the Maze Experiment!";
                 }
