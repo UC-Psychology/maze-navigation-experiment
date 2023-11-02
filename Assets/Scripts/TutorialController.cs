@@ -7,9 +7,9 @@ public class TutorialController : MonoBehaviour
     private string currentSequence = "";
     private int currentStep = 0;
     private string[] tutorialSteps = {"Press W", 
-    "Press A to turn right", 
+    "Press A to turn left", 
     "Press S to move backward", 
-    "Press D to turn left",
+    "Press D to turn right",
     "Press and hold LeftShift while moving to sprint",};
 
     void Update()

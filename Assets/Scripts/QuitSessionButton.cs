@@ -19,12 +19,16 @@ public class QuitSessionButton : MonoBehaviour
     {
         Debug.Log("Quit Session"); 
 
-        session.settings.SetValue("session_ended", "participant_quit");
+        
 
-        session.End();
+        if (session.InTrial)
+        {
+            session.End();
+            session.settings.SetValue("session_ended", "participant_quit");
+        }
+
         // End the session here
         Application.Quit();
-
     }
 }
 
