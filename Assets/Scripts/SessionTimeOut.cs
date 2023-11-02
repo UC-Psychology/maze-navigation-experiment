@@ -22,7 +22,7 @@ public class SessionTimeOut : MonoBehaviour
         {
             timeRemaining -= Time.deltaTime;
         }
-        else if (timeRemaining < 0)
+        else if (timeRemaining < 0 && session.InTrial)
         {
             timeOutTextBox.gameObject.SetActive(true);
             countdownActive = false;

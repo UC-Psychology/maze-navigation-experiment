@@ -2510,7 +2510,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -808, y: 456}
+  m_AnchoredPosition: {x: -300, y: 200}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &572197631
@@ -6014,7 +6014,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: You've run out of time to find the coin! Thanks for participating in our
-    expermient! You may hit "Escape" to close the program.
+    expermient! You may hit "Quit" to close the program.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -7455,12 +7455,11 @@ PrefabInstance:
         a maze might help people navigate it. \n\nIn today's experiment, you will
         be solving a maze using your keyboard, from a first person game-like perspective.
         Try and solve the maze as quickly as you can!\n\nOnce you solve the maze,
-        your information will be recorded.\n\nYou can press the \"Quit\" button in
-        the top left hand corner to end the experiment - you can choose to do this
-        at any time.\n\nBy consenting to this experiment, you agree to participate
-        in a classroom experiment at the University of Cincinnati. Any data from
-        this experiment will be anonymous, but may be shared in and outside of the
-        University. "
+        your information will be recorded.\n\nYou can press the \"Quit\" button to
+        end the experiment - you can choose to do this at any time.\n\nBy consenting
+        to this experiment, you agree to participate in a classroom experiment at
+        the University of Cincinnati. Any data from this experiment will be anonymous,
+        but may be shared in and outside of the University. "
       objectReference: {fileID: 0}
     - target: {fileID: 8563684494448067901, guid: 0a3b6392f04558844bd340e68ced1ff9, type: 3}
       propertyPath: m_FontData.m_MinSize
