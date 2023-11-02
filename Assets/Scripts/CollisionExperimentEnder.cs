@@ -11,8 +11,8 @@ public class CollisionExperimentEnder : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player")) // Check if the object is the player
         {
+            session.settings.SetValue("session_ended", "participant_success");
             session.End(); // End the UXF session
-            Debug.Log("Session ended");
         }
     }
 }
