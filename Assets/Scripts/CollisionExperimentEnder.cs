@@ -8,6 +8,7 @@ public class CollisionExperimentEnder : MonoBehaviour
 {
     public Session session; // Reference to the UXF session
     public TMP_Text winTextBox;
+    
 
     private void OnTriggerEnter(Collider other)
     {

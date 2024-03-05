@@ -3056,39 +3056,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 741795911}
   m_CullTransparentMesh: 0
---- !u!1 &782628375 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 720914705815941363, guid: 0a3b6392f04558844bd340e68ced1ff9, type: 3}
-  m_PrefabInstance: {fileID: 1893283060}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &782628380 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1311505219725777297, guid: 0a3b6392f04558844bd340e68ced1ff9, type: 3}
-  m_PrefabInstance: {fileID: 1893283060}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 782628375}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 37d3ef49a8abdaf40af92c99696a2caa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &782628383
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 782628375}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 25be2199edad4264f9234ad2f8ada6db, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  url: https://eoz1en95jpmfmm7.m.pipedream.net
-  httpBasicAuthentication: 0
-  username: susan
-  password: password
-  session: {fileID: 1613539408}
 --- !u!1 &794527857
 GameObject:
   m_ObjectHideFlags: 0
@@ -6916,7 +6883,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 114916036141644208, guid: 0a3b6392f04558844bd340e68ced1ff9, type: 3}
       propertyPath: dataHandlers.Array.size
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 114916036141644208, guid: 0a3b6392f04558844bd340e68ced1ff9, type: 3}
       propertyPath: settingsToLog.Array.size
@@ -6929,7 +6896,7 @@ PrefabInstance:
     - target: {fileID: 114916036141644208, guid: 0a3b6392f04558844bd340e68ced1ff9, type: 3}
       propertyPath: dataHandlers.Array.data[4]
       value: 
-      objectReference: {fileID: 782628380}
+      objectReference: {fileID: 1911301310}
     - target: {fileID: 114916036141644208, guid: 0a3b6392f04558844bd340e68ced1ff9, type: 3}
       propertyPath: trackedObjects.Array.data[0]
       value: 
@@ -6940,7 +6907,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 114916036141644208, guid: 0a3b6392f04558844bd340e68ced1ff9, type: 3}
       propertyPath: onSessionEnd.m_PersistentCalls.m_Calls.Array.size
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114916036141644208, guid: 0a3b6392f04558844bd340e68ced1ff9, type: 3}
       propertyPath: onTrialBegin.m_PersistentCalls.m_Calls.Array.size
@@ -6977,7 +6944,7 @@ PrefabInstance:
     - target: {fileID: 114916036141644208, guid: 0a3b6392f04558844bd340e68ced1ff9, type: 3}
       propertyPath: onSessionEnd.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1911301310}
     - target: {fileID: 114916036141644208, guid: 0a3b6392f04558844bd340e68ced1ff9, type: 3}
       propertyPath: onTrialBegin.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -7004,7 +6971,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 114916036141644208, guid: 0a3b6392f04558844bd340e68ced1ff9, type: 3}
       propertyPath: onSessionEnd.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: WriteJSON
+      value: SendToSheets
       objectReference: {fileID: 0}
     - target: {fileID: 114916036141644208, guid: 0a3b6392f04558844bd340e68ced1ff9, type: 3}
       propertyPath: onTrialBegin.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
@@ -7036,7 +7003,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 114916036141644208, guid: 0a3b6392f04558844bd340e68ced1ff9, type: 3}
       propertyPath: onSessionEnd.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: JSONHandler, Assembly-CSharp
+      value: SimpleHTTPPost, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 114916036141644208, guid: 0a3b6392f04558844bd340e68ced1ff9, type: 3}
       propertyPath: onTrialBegin.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
@@ -7691,6 +7658,7 @@ GameObject:
   - component: {fileID: 1911301307}
   - component: {fileID: 1911301308}
   - component: {fileID: 1911301309}
+  - component: {fileID: 1911301310}
   m_Layer: 0
   m_Name: Experiment
   m_TagString: Untagged
@@ -7752,6 +7720,7 @@ MonoBehaviour:
   cameraSwitch: {fileID: 1911301303}
   goInstructions: {fileID: 1461408476}
   playerMovementHandler: {fileID: 1911301306}
+  conditionNumber: 0
 --- !u!114 &1911301306
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7805,6 +7774,24 @@ MonoBehaviour:
   timeRemaining: 240
   timeOutTextBox: {fileID: 1668903142}
   session: {fileID: 1613539408}
+--- !u!114 &1911301310
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1911301302}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 25be2199edad4264f9234ad2f8ada6db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  active: 1
+  url: https://eoz1en95jpmfmm7.m.pipedream.net
+  httpBasicAuthentication: 0
+  username: susan
+  password: password
+  Experiment: {fileID: 1911301305}
 --- !u!1 &1924438619
 GameObject:
   m_ObjectHideFlags: 0

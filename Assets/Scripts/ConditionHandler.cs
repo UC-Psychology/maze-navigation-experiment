@@ -9,10 +9,11 @@ public class ConditionHandler : MonoBehaviour
     public CameraSwitch cameraSwitch;
     public TMP_Text goInstructions;
     public PlayerMovementHandler playerMovementHandler;
+    public int conditionNumber;
 
     public void SelectCondition(Session session)
     {
-        int conditionNumber = Random.Range(1, 4);
+        conditionNumber = Random.Range(1, 4);
         session.settings.SetValue("condition_number", conditionNumber);
         Debug.Log(session.settings.GetInt("condition_number"));
 
