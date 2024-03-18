@@ -1,14 +1,15 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
-using System;
 using System.IO;
 using UXF;
 
 public class SimpleHTTPPost : DataHandler
 {
     [Tooltip("URL of the form to POST to.")]
+
     public string url = "http://127.0.0.1:5000/";
 
     [Tooltip("Enable to use username and password to add Basic HTTP Authentication to the request.")]
@@ -19,6 +20,10 @@ public class SimpleHTTPPost : DataHandler
     public string password = "password";
     public ConditionHandler Experiment;
 
+    // private Session session;
+
+    private Dictionary<string, object> participantDetails;
+
     string condition;
     string trial;
     string time;
@@ -27,37 +32,48 @@ public class SimpleHTTPPost : DataHandler
     string sessionID;
     float trialTime;
 
-
-
     void Awake()
     {
+        // Get the Session component from the parent
+        Session parentSession = GetComponentInParent<Session>();
 
+        // Initialize the session
+        Initialise(parentSession);
+
+        // Get the participant details
+        participantDetails = parentSession.participantDetails;
     }
 
     void DataGatherer()
     {
         //// NOTE: This can be moved to the Data Handler if we want to make this better, by using UXF to specify conditipon settings and behavioral results. I don't want to do this - Georg///////
         condition = Experiment.conditionNumber.ToString();
-        trial = "1";
+        trial = "1"; // currently, there is only one trial
         time = DateTime.Now.ToString();
         trialResult = session.settings.GetString("session_ended"); // Use double quotes for string literals
         participantID = session.ppid;
     }
-    public void SendToSheets()
-    {
 
+    public void SendToSheets(Session session)
+    {
         WWWForm form = new WWWForm();
         DataGatherer();
         // Create a dictionary
         Dictionary<string, string> data = new Dictionary<string, string>
-            {
-                {"Condition", condition},
-                {"Trial", trial},
-                {"Time", time},
-                {"TrialResult", trialResult},
-                {"ParticipantID", participantID},
-                {"TrialTime", trialTime.ToString()}
-            };
+        {
+            {"Condition", condition},
+            {"Trial", trial},
+            {"Time", time},
+            {"TrialResult", trialResult},
+            {"ParticipantID", participantID},
+            {"TrialTime", trialTime.ToString()}
+        };
+
+        // Add participant details to the data dictionary
+        foreach (KeyValuePair<string, object> entry in participantDetails)
+        {
+            data.Add(entry.Key, entry.Value.ToString());
+        }
 
         // Add each item in the dictionary to the form
         foreach (var item in data)
@@ -84,7 +100,7 @@ public class SimpleHTTPPost : DataHandler
 
         bool error;
 #if UNITY_2020_OR_NEWER
-            error = www.result != UnityWebRequest.Result.Success;
+        error = www.result != UnityWebRequest.Result.Success;
 #else
 #pragma warning disable
         error = www.isHttpError || www.isNetworkError;
@@ -184,3 +200,5 @@ public class SimpleHTTPPost : DataHandler
         // No cleanup is needed in this case. But you can add any code here that will be run when the session finishes.
     }
 }
+
+
