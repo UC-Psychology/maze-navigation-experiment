@@ -32,16 +32,22 @@ public class SimpleHTTPPost : DataHandler
     string sessionID;
     float trialTime;
 
+    public Session session;
+
     void Awake()
     {
-        // Get the Session component from the parent
-        Session parentSession = GetComponentInParent<Session>();
+        // Check if parentSession is null
+        if (session == null)
+        {
+            Debug.LogError("No Session component found in parent GameObject.");
+            return;
+        }
 
         // Initialize the session
-        Initialise(parentSession);
+        Initialise(session);
 
         // Get the participant details
-        participantDetails = parentSession.participantDetails;
+        participantDetails = session.participantDetails;
     }
 
     void DataGatherer()
@@ -56,6 +62,7 @@ public class SimpleHTTPPost : DataHandler
 
     public void SendToSheets(Session session)
     {
+        Debug.Log("Sending data to Sheets");
         WWWForm form = new WWWForm();
         DataGatherer();
         // Create a dictionary
@@ -73,6 +80,7 @@ public class SimpleHTTPPost : DataHandler
         foreach (KeyValuePair<string, object> entry in participantDetails)
         {
             data.Add(entry.Key, entry.Value.ToString());
+            Debug.Log("Key: " + entry.Key + ", Value: " + entry.Value.ToString());
         }
 
         // Add each item in the dictionary to the form
