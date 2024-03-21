@@ -31,23 +31,9 @@ public class SimpleHTTPPost : DataHandler
     string participantID;
     string sessionID;
     float trialTime;
-
-    public Session session;
-
     void Awake()
     {
-        // Check if parentSession is null
-        if (session == null)
-        {
-            Debug.LogError("No Session component found in parent GameObject.");
-            return;
-        }
 
-        // Initialize the session
-        Initialise(session);
-
-        // Get the participant details
-        participantDetails = session.participantDetails;
     }
 
     void DataGatherer()
@@ -58,6 +44,7 @@ public class SimpleHTTPPost : DataHandler
         time = DateTime.Now.ToString();
         trialResult = session.settings.GetString("session_ended"); // Use double quotes for string literals
         participantID = session.ppid;
+        participantDetails = session.participantDetails;
     }
 
     public void SendToSheets(Session session)
