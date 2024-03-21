@@ -2,11 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 using UXF;
 
 public class QuitSessionButton : MonoBehaviour
 {
     public Session session;
+    public TMP_Text quitTextBox;
+
 
     // Start is called before the first frame update
     void Start()
@@ -23,12 +26,13 @@ public class QuitSessionButton : MonoBehaviour
 
         if (session.InTrial)
         {
-            session.End();
             session.settings.SetValue("session_ended", "participant_quit");
+            quitTextBox.gameObject.SetActive(true);
+            session.End();
         }
 
         // End the session here
-        Application.Quit();
+        // Application.Quit();
     }
 }
 
